@@ -128,7 +128,7 @@ FHIR_SERVER = 'https://fhir.backend.bluebutton.hhsdevcloud.us'
 FHIR_PATH = '/baseDstu3'
 FHIR_FORMAT = 'json'
 FHIR_CERT = ('/var/pyapps/certstore/ca.cert.pem',
-             '/varr/pyapps/certstore/ca.key.nocrypt.pem')
+             '/var/pyapps/certstore/ca.key.nocrypt.pem')
 # FHIR_CERT = ('/Users/mark/PycharmProjects/bb_web_server/certstore/ca.cert.pem',
 #              '/Users/mark/PycharmProjects/bb_web_server/certstore/ca.key.nocrypt.pem')
 FHIR_VERIFY = False
