@@ -5,13 +5,18 @@
 # pip freeze >requirements/requirements.txt
 #
 attrs==17.4.0
+certifi==2018.1.18
+chardet==3.0.4
 Django==2.0.3
 django-rest-framework-mongoengine==3.3.1
 djangorestframework==3.7.7
+idna==2.6
 mongoengine==0.15.0
 pluggy==0.6.0
 py==1.5.2
 pymongo==3.6.1
 pytest==3.4.2
 pytz==2018.3
+requests==2.18.4
 six==1.11.0
+urllib3==1.22
