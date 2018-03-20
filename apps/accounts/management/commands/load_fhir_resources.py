@@ -15,6 +15,8 @@ from django.conf import settings
 
 import logging
 import requests
+import urllib3
+
 
 from pymongo import MongoClient
 
@@ -34,6 +36,7 @@ def load_fhir_resources(collection='bb_fhir',
 
     Load synthetic data in to mongodb
     """
+    urllib3.disable_warnings()
 
     client = MongoClient()
     db = client[collection]
