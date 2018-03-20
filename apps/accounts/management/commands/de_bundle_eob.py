@@ -53,7 +53,8 @@ def de_bundle_eob(collection='bb_fhir'):
 
         bundle_size = len(bundle['entry'])
 
-        logger.debug('%s has %s EOBs' % (bundle['link']['url'], bundle_size))
+        logger.debug('%s has %s EOBs' % (bundle['link'][0]['url'].split('&')[1],
+                                         bundle_size))
 
         for n in range(0, bundle_size-1):
             b_n = bundle['entry'][n]
