@@ -70,7 +70,7 @@ def load_fhir_resources(collection='bb_fhir',
         if r_c.status_code == 200:
             coverage_info = r_c.json()
             c_id = coverage.insert_one(coverage_info).inserted_id
-            logger.debug('saving Coverage for "%s"' % str(n))
+            logger.debug('        Saving Coverage for "%s"' % str(n))
 
         eob_url = settings.FHIR_SERVER + settings.FHIR_PATH + '/ExplanationOfBenefit/?patient=' + str(n) + '&_format=' + settings.FHIR_FORMAT
         r_e = requests.get(eob_url,
@@ -79,7 +79,7 @@ def load_fhir_resources(collection='bb_fhir',
         if r_e.status_code == 200:
             eob_info = r_e.json()
             e_id = eob.insert_one(eob_info).inserted_id
-            logger.debug('saving EOB for "%s"' % str(n))
+            logger.debug('        Saving EOB for "%s"' % str(n))
 
     return True
 
