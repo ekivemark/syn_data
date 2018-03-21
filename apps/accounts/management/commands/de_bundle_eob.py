@@ -49,19 +49,26 @@ def de_bundle_eob(collection='bb_fhir'):
     counter = cursor.count()
 
     while index != counter:
-        bundle = cursor[index]
+        if bundle['link'][0]['url'].split('&')[1] <= 'patient=19990000010000':
+            print("skipping %s" % bundle['link'][0]['url'].split('&')[1])
+        else:
+            bundle = cursor[index]
 
-        bundle_size = len(bundle['entry'])
+            if 'entry' in bundle:
+                bundle_size = len(bundle['entry'])
+            else:
+                bundle_size = 0
 
-        logger.debug('%s has %s EOBs' % (bundle['link'][0]['url'].split('&')[1],
-                                         bundle_size))
+            print('%s has %s EOBs' % (bundle['link'][0]['url'].split('&')[1],
+                                      bundle_size))
 
-        for n in range(0, bundle_size-1):
-            b_n = bundle['entry'][n]
-            logger.debug("inserting EOB:%s" % n)
-            b_id = erecords.insert_one(b_n).inserted_id
+            for n in range(1, bundle_size):
+                b_n = bundle['entry'][n-1]
+                logger.debug("inserting EOB:%s" % n-1)
+                b_id = erecords.insert_one(b_n).inserted_id
 
         index += 1
+
     cursor.close()
 
     return True
