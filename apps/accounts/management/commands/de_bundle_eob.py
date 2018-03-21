@@ -45,7 +45,7 @@ def de_bundle_eob(collection='bb_fhir'):
 
     cursor = eob.find(modifiers={"$snapshot": True})
 
-    index = 9900
+    index = 9990
     counter = cursor.count()
 
     while index != counter:
@@ -56,7 +56,7 @@ def de_bundle_eob(collection='bb_fhir'):
         else:
 
             bundle_size = len(bundle['entry'])
-        
+
             print('%s has %s EOBs' % (bundle['link'][0]['url'].split('&')[1],
                                       bundle_size))
 
