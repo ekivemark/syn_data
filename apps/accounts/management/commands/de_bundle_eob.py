@@ -54,11 +54,9 @@ def de_bundle_eob(collection='bb_fhir'):
         if bundle['link'][0]['url'].split('&')[1] <= 'patient=19990000010000':
             print("skipping %s" % bundle['link'][0]['url'].split('&')[1])
         else:
-            if 'entry' in bundle:
-                bundle_size = len(bundle['entry'])
-            else:
-                bundle_size = 0
 
+            bundle_size = len(bundle['entry'])
+        
             print('%s has %s EOBs' % (bundle['link'][0]['url'].split('&')[1],
                                       bundle_size))
 
