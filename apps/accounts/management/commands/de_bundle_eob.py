@@ -45,7 +45,7 @@ def de_bundle_eob(collection='bb_fhir'):
 
     cursor = eob.find(modifiers={"$snapshot": True})
 
-    index = 0
+    index = 9900
     counter = cursor.count()
 
     while index != counter:
