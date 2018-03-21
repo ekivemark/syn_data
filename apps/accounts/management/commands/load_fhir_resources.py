@@ -92,8 +92,9 @@ def load_fhir_resources(collection='bb_fhir',
                     bundle_size = 0
 
                 for n in range(1, bundle_size):
-                    b_n =eob_info['entry'][n-1]
-                    print("inserting EOB:%s" % n-1)
+                    nn = int(n) - 1
+                    b_n =eob_info['entry'][nn]
+                    print("inserting EOB:%s" % nn)
                     b_id = erecords.insert_one(b_n).inserted_id
 
     return True
