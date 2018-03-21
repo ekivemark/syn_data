@@ -49,11 +49,11 @@ def de_bundle_eob(collection='bb_fhir'):
     counter = cursor.count()
 
     while index != counter:
+        bundle = cursor[index]
+
         if bundle['link'][0]['url'].split('&')[1] <= 'patient=19990000010000':
             print("skipping %s" % bundle['link'][0]['url'].split('&')[1])
         else:
-            bundle = cursor[index]
-
             if 'entry' in bundle:
                 bundle_size = len(bundle['entry'])
             else:
