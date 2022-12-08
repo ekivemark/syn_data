@@ -5,7 +5,7 @@
 # pip freeze >requirements/requirements.txt
 #
 attrs==17.4.0
-certifi==2018.1.18
+certifi==2022.12.7
 chardet==3.0.4
 Django==2.0.3
 django-rest-framework-mongoengine==3.3.1
